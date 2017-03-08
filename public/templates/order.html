@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Village Bagel</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <!-- Custom styles for this template-->
+    <link href="css/carousel.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="navbar-wrapper">
+      <div class="container">
+        <nav class="navbar navbar-inverse navbar-static-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span>                  <span class="icon-bar"></span>                  <span class="icon-bar"></span>                  <span class="icon-bar"></span></button>                <a href="/" class="navbar-brand">Village Bagel</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li><a href="/our_company">Our Company</a></li>
+                <li><a href="/backdoor_bagels">Backdoor Bagels</a></li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="/order">Order</a></li>
+                <li><a href="/contact">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <!--
+    Marketing messaging and featurettes
+    ==================================================
+    -->
+    <!-- Wrap the rest of the page in another container to center all the content.-->
+    <div class="container marketing">
+      <!-- START THE FEATURETTES-->
+      <hr class="featurette-divider">
+      <div class="row featurette">
+        <div class="col-md-6">
+          <h2 class="featurette-heading">Place an order </h2>            <span class="lead text-muted">Bagels</span>
+          <p>$2.50 each | $12 half-dozen | $23 baker&apos;s dozen</p>
+          <form>
+            <!-- Bagels --->
+            <div class="form-group">
+              <label for="bagel-type">Bagels: </label>
+              <select id="bagel-type" name="bagel-type">
+                <option value="Plain">Plain</option>
+                <option value="Salt">Salt</option>
+                <option value="Poppy">Poppy</option>
+                <option value="Sesame">Sesame</option>
+                <option value="Onion">Onion</option>
+                <option value="Everything">Everything</option>
+                <option value="Garlic">Garlic</option>
+                <option value="Cinnamon_Raisin">Cinnamon Raisin</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="bagel-number">How many?</label>
+              <input id="bagel-number" type="number" name="bagel-number" min="1">
+            </div>
+            <button onclick="addBagelsToCart()" type="submit" class="btn btn-default">Add to cart</button>
+          </form>
+          <hr>
+          <!-- Shmears-->
+          <form><span class="lead text-muted">Shmears</span>
+            <p>$5 half pound | $9 pound</p>
+            <div class="form-group">
+              <label for="shmear-type">Shmears: </label>
+              <select id="shmear-type" name="smear-type">
+                <option value="Whipped_Plain">Whipped Plain</option>
+                <option value="Hatch_Green_Chili">Hatch Green Chili</option>
+                <option value="Honey_Rosemerry">Honey Rosemerry</option>
+                <option value="Bacon">Bacon</option>
+                <option value="Veggie">Veggie</option>
+                <option value="Chive_&amp;amp;_Onion">Chive &amp; Onion</option>
+                <option value="Nutella_Swirl">Nutella Swirl</option>
+                <option value="Maple_Walnut">Maple Walnut</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="shmear-size">Size: </label>
+              <select id="shmear-size" name="shmear-number">
+                <option value="Half_Pound">Half Pound</option>
+                <option value="One_Pound">One Pound</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="shmear-number">How many?</label>
+              <input id="shmear-number" name="shmear-number" type="number" min="1">
+            </div>
+            <button onclick="addShmearsToCart()" type="submit" class="btn btn-default">Add to cart</button>
+          </form>
+          <hr>
+          <!-- Spreads-->
+          <form><span class="lead text-muted">Spreads</span>
+            <p>$2 single serving | $6 half pound</p>
+            <div class="form-group">
+              <label for="spread-type">Spreads: </label>
+              <select id="spread-type" name="spread-number">
+                <option value="Avocado">Avocado</option>
+                <option value="almond_butter">Almond Butter</option>
+                <option value="Strawberry">Strawberry</option>
+                <option value="Hummus">Hummus</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="spread-size">Size: </label>
+              <select id="spread-size" name="spread-number">
+                <option value="Single">Single</option>
+                <option value="Half_Pound">Half Pound</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="spread-number">How many?</label>
+              <input id="spread-number" name="spread-number" type="number" min="1">
+            </div>
+            <button onclick="addSpreadsToCart()" type="submit" class="btn btn-default">Add to cart</button>
+          </form>
+        </div>
+        <div class="col-md-6 cart"><br>            <span class="lead text-muted cart-title">Cart</span>
+          <hr>
+          <div id="cart"></div>
+          <p>Subtotal: <span id="subtotal">$0</span></p>
+          <hr>              <br>            <br>
+          <!--
+          These div elements are the placeholder elements that are replaced by the
+          SqPaymentForm's iframes.
+          -->
+          <div id="successNotification" style="display: none">Card Charged Succesfully!!</div><br>
+          <br>
+          <form id="payment-form" action="#" onsubmit="return paymentFormSubmit()">
+          <div>
+          <div id="card-errors">
+          </div>
+          <label>Email</label>
+          <br>
+          <input class="sq-input" style="width: 50%; padding 7px 12px;" type="email" id="email" name="email"  placeholder="Email"/>
+          <br>
+          <label>Card Number</label>
+          <div  id="sq-card-number"></div>
+          </div>
+          <div>
+          <label>CVV</label>
+          <div  id="sq-cvv"></div>
+          </div>
+          <div>
+          <label>Expiration Date</label>
+          <div  id="sq-expiration-date"></div>
+          </div>
+          <div>
+          <label>Postal Code</label>
+          <div  id="sq-postal-code"></div>
+          </div>
+          <div>
+          <input type="submit" id="submit" value="Place Order" class="btn btn-primary">
+          <br>
+          <br>
+          </div>
+          </form>
+        </div>
+      </div>
+      <hr class="featurette-divider"><hr class="" />
+      <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2016 Constance Leaf</p>
+      </footer>
+    </div>
+    <!-- /.container-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/custom.js"></script>
+    <script type="text/javascript" src="https://js.squareup.com/v2/paymentform"></script>
+    <script type="text/javascript">
+      console.log(cart)
+      var cardNonce;
+      var paymentForm = new SqPaymentForm({
+      applicationId: '',
+      inputClass: 'sq-input',
+      inputStyles: [
+      {
+      fontSize: '14px',
+      padding: '7px 12px',
+      backgroundColor: "transparent"
+      }
+      ],
+      cardNumber: {
+      elementId: 'sq-card-number',
+      placeholder: '0000 0000 0000 0000'
+      },
+      cvv: {
+      elementId: 'sq-cvv',
+      placeholder: 'CVV'
+      },
+      expirationDate: {
+      elementId: 'sq-expiration-date',
+      placeholder: 'MM/YY'
+      },
+      postalCode: {
+      elementId: 'sq-postal-code',
+      placeholder: '94110'
+      },
+      callbacks: {
+      cardNonceResponseReceived: function(errors, nonce, cardData) {
+      if (errors){
+      var error_html = ""
+      for (var i =0; i < errors.length; i++){
+      error_html += "<li> " + errors[i].message + " </li>";
+      }
+      document.getElementById("card-errors").innerHTML = error_html;
+      document.getElementById('submit').disabled = false;
+      }else{
+      document.getElementById("card-errors").innerHTML = "";
+      chargeCardWithNonce(nonce);
+      }
+      },
+      unsupportedBrowserDetected: function() {
+      // Alert the buyer
+      alert('unsupported Browser Detected')
+      }
+      }
+      });
+      // build payment form after DOM load
+      document.addEventListener('page:change', function(){
+      console.log('dom loaded')
+      paymentForm.build()
+      });
+      var paymentFormSubmit = function(){
+      event.preventDefault()
+      console.log('submit clicked');
+      document.getElementById('submit').disabled = true;
+      paymentForm.requestCardNonce();
+      return false;
+      }
+      var chargeCardWithNonce = function(nonce) {
+        var productsString = '';
+        cart.forEach(function(element){
+          productsString = productsString + element.string + ','
+        })
+      var products = cart;
+      var name =  "null" || document.getElementById('name').value;
+      var email = document.getElementById('email').value || "null";
+      var street_address_1 = "null" || document.getElementById('street_address_1').value;
+      var street_address_2 = "null" || document.getElementById('street_address_2').value;
+      var city = "null" || document.getElementById('city').value;
+      var state = "null" || document.getElementById('state').value;
+      var zip = "null" || document.getElementById('zip').value;
+      var http = new XMLHttpRequest();
+      var url = "/charges/charge_card";
+      var params = "products=" + productsString
+      +"&name=" + name
+      +"&email=" + email
+      + "&nonce=" + nonce
+      + "&street_address_1=" + street_address_1
+      + "&street_address_2=" + street_address_2
+      + "&city=" + city
+      + "&state=" + state
+      + "&zip=" + zip;
+      http.open("POST", url, true);
+      //Send the proper header information along with the request
+      http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      http.setRequestHeader("X-CSRF-Token", "<%= form_authenticity_token %>");
+      http.onreadystatechange = function() {//Call a function when the state changes.
+      if(http.readyState == 4 && http.status == 200) {
+      var data = JSON.parse(http.responseText)
+      if (data.status == 200) {
+      document.getElementById("successNotification").style.display = "block";
+      document.getElementById("payment-form").style.display = "none";
+      window.scrollTo(0, 0);
+      }else if (data.status == 400){
+      var error_html = ""
+      for (var i =0; i < data.errors.length; i++){
+      error_html += "<li> " + data.errors[i].detail + " </li>";
+      }
+      document.getElementById("card-errors").innerHTML = error_html;
+      document.getElementById('submit').disabled = false;
+      }
+      }
+      }
+      http.send(params);
+      }
+    </script>
+  </body>
+</html>
