@@ -1,0 +1,289 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>#2 - A Simple One Page Template - ScrollMagic and GreenSock</title>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+        <link href="https://fonts.googleapis.com/css?family=Raleway:100|Roboto+Condensed:700" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="../css/styles.css">
+
+        <script src="../js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div id="intro" class="header-container fs">
+            <header class="wrapper">
+                <h1 class="title">Village Bagel</h1>
+                <p>Once you try an authentic bagel, you'll never eat the store bought ones again.</p>
+                <form style="color: black;" method="post">
+                  <input type="email" name="email"/>
+                  <input type="submit" value="send email" />
+                </form>
+            </header>
+            <span class="scroll-hint">Scroll Down</span>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="#intro"><span class="nav-dot"></span><span class="nav-label">Village Bagel</span></a></li>
+                <li><a href="#slide01"><span class="nav-dot"></span><span class="nav-label">Images</span></a></li>
+                <li><a href="#slide02"><span class="nav-dot"></span><span class="nav-label">Order</span></a></li>
+                <li><a href="#slide03"><span class="nav-dot"></span><span class="nav-label">Contact</span></a></li>
+            </ul>
+        </nav>
+
+        <div class="main-container">
+
+            <article id="cb01" class="content-block">
+                <div class="wrapper">
+                    <header class="slideInUp">
+                        <h1>SHARE</h1>
+                    </header>
+                    <section>
+                        <p class="slideInUp slideInUp2">
+                          <a target="_blank" title="follow me on twitter" href="http://www.twitter.com/PLACEHOLDER"><img style="height: 40px; width:40px;" alt="follow me on twitter" src="../img/twitter-icon.png" border=0></a>
+                          <a target="_blank" title="follow me on instagram" href="http://www.facebook.com/PLACEHOLDER"><img style="height: 40px; width:40px;" alt="follow me on facebook" src="../img/facebook-icon.png" border=0></a>
+                          <a target="_blank" title="follow me on twitter" href="http://www.instagram.com/PLACEHOLDER"><img style="height: 40px; width:40px;" alt="follow me on twitter" src="../img/instagram-icon.png" border=0></a>
+                          <a target="_blank" href="mailto:name@email.com?subject=Check%20out%20this%20cool%20spot.&amp;body=Check%20out%20villagebagel.co"><img style="height: 40px; width:40px;" alt="follow me on twitter" src="../img/email-icon.png" border=0></a>
+                        </p>
+                    </section>
+                </div> <!-- .wrapper -->
+            </article>
+
+            <article id="slide01" class="slide fs">
+                <div class="wrapper">
+                    <header class="slideInUp">
+                        <h1>A picture is worth a thousand words</h1>
+                    </header>
+                    <section>
+                        <p class="slideInUp slideInUp2">Let the images do the talking and use text for short summaries.</p>
+                    </section>
+                </div> <!-- .wrapper -->
+            </article>
+
+            <article id="cb02" class="content-block">
+                <div class="wrapper">
+                    <header class="slideInUp">
+                        <h1>Menu</h1>
+                    </header>
+                    <section>
+                        <p class="slideInUp slideInUp2">Bagels, Shmears and Spreads`</p>
+                    </section>
+                </div> <!-- .wrapper -->
+            </article>
+
+            <article id="slide02" class="slide fs">
+                <div class="wrapper">
+                    <header class="slideInUp">
+                        <h1>Position and Timing</h1>
+                    </header>
+                    <section>
+                        <p class="slideInUp slideInUp2">Position elements based on the background image and trigger animation at the right time.</p>
+                        <p class="slideInUp slideInUp3">Use different triggerElements in combination with offsets to be in full control.</p>
+                    </section>
+                </div> <!-- .wrapper -->
+            </article>
+
+            <article id="cb03" class="content-block">
+                <div class="wrapper">
+                    <header class="slideInUp">
+                        <h1>Order Here</h1>
+                    </header>
+                    <section>
+                        <p class="slideInUp slideInUp2">Place an order in the form that is about to go here.</p>
+                        <div id="successNotification" style="display: none">Card Charged Succesfully!!</div><br>
+                        <br>
+                        <form id="payment-form" action="#" onsubmit="return paymentFormSubmit()">
+                        <div>
+                        <div id="card-errors">
+                        </div>
+                        <label>Email</label>
+                        <br>
+                        <input class="sq-input" style="width: 50%; padding 7px 12px;" type="email" id="email" name="email"  placeholder="Email"/>
+                        <br>
+                        <label>Card Number</label>
+                        <div  id="sq-card-number"></div>
+                        </div>
+                        <div>
+                        <label>CVV</label>
+                        <div  id="sq-cvv"></div>
+                        </div>
+                        <div>
+                        <label>Expiration Date</label>
+                        <div  id="sq-expiration-date"></div>
+                        </div>
+                        <div>
+                        <label>Postal Code</label>
+                        <div  id="sq-postal-code"></div>
+                        </div>
+                        <div>
+                        <input type="submit" id="submit" value="Place Order" class="btn btn-primary">
+                        <br>
+                        <br>
+                        </div>
+                        </form>
+                    </section>
+                </div> <!-- .wrapper -->
+            </article>
+
+            <article id="slide03" class="slide fs">
+                <div class="wrapper">
+                    <header class="slideInUp">
+                      <h1>Contact us</h1>
+                    </header>
+                    <section>
+                        <p class="slideInUp slideInUp2"><a style="text-decoration: none;" href="mailto:villagebagel1@gmail.com">Email us here</a></p>
+                        <p class="slideInUp slideInUp2">Custom order by calling or texting <a style="text-decoration: none;" href="tel:19148868851">(914)886-8851</a></p>
+                        <div class="slideInUp slideInUp3">
+                          <h2>Or Visit</h2>
+                            <p>
+                              Village Bagel LLC <br />
+                              55 Village Road <br />
+                              Avon, CO, 81620 <br />
+                              Pick up at Kitchen Entrance Around Back of <br />
+                              Mirabelle Restaurant (just inside the gates of Beaver Creek).
+                            </p>
+                        </div>
+
+                    </section>
+                </div> <!-- .wrapper -->
+            </article>
+
+        </div> <!-- #main-container -->
+
+        <div class="footer-container">
+            <footer class="wrapper">
+                <h3>2016 &copy; <a href="https://ihatetomatoes.net" target="_blank">Ihatetomatoes.net</a> | <a href="https://twitter.com/ihatetomatoes" target="_blank">@ihatetomatoes</a> | Images by <a href="http://raumrot.com/portfolio/set-07-free-for-commercial-use-photos/" target="_blank">Markus Spiske / raumrot.com</a> | Animate responsibly!</h3>
+            </footer>
+        </div>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
+        <script type="text/javascript" src="https://js.squareup.com/v2/paymentform"></script>
+        <script src="../js/main.js"></script>
+        <script src="../js/custom.js"></script>
+        <script type="text/javascript">
+        console.log(cart)
+        var cardNonce;
+        var paymentForm = new SqPaymentForm({
+        applicationId: '#{square_application_id}',
+        inputClass: 'sq-input',
+        inputStyles: [
+        {
+        fontSize: '14px',
+        padding: '7px 12px',
+        backgroundColor: "transparent"
+        }
+        ],
+        cardNumber: {
+        elementId: 'sq-card-number',
+        placeholder: '0000 0000 0000 0000'
+        },
+        cvv: {
+        elementId: 'sq-cvv',
+        placeholder: 'CVV'
+        },
+        expirationDate: {
+        elementId: 'sq-expiration-date',
+        placeholder: 'MM/YY'
+        },
+        postalCode: {
+        elementId: 'sq-postal-code',
+        placeholder: '94110'
+        },
+        callbacks: {
+        cardNonceResponseReceived: function(errors, nonce, cardData) {
+        if (errors){
+        var error_html = ""
+        for (var i =0; i < errors.length; i++){
+        error_html += "<li> " + errors[i].message + " </li>";
+        }
+        document.getElementById("card-errors").innerHTML = error_html;
+        document.getElementById('submit').disabled = false;
+        }else{
+        document.getElementById("card-errors").innerHTML = "";
+        chargeCardWithNonce(nonce);
+        }
+        },
+        unsupportedBrowserDetected: function() {
+        // Alert the buyer
+        alert('unsupported Browser Detected')
+        }
+        }
+        });
+        // build payment form after DOM load
+        document.addEventListener('page:change', function(){
+        console.log('dom loaded')
+        paymentForm.build()
+        });
+        var paymentFormSubmit = function(){
+        event.preventDefault()
+        console.log('submit clicked');
+        document.getElementById('submit').disabled = true;
+        paymentForm.requestCardNonce();
+        return false;
+        }
+        var chargeCardWithNonce = function(nonce) {
+          var productsString = '';
+          cart.forEach(function(element){
+            productsString = productsString + element.string + ','
+          })
+        var products = cart;
+        var name =  "null" || document.getElementById('name').value;
+        var email = document.getElementById('email').value || "null";
+        var street_address_1 = "null" || document.getElementById('street_address_1').value;
+        var street_address_2 = "null" || document.getElementById('street_address_2').value;
+        var city = "null" || document.getElementById('city').value;
+        var state = "null" || document.getElementById('state').value;
+        var zip = "null" || document.getElementById('zip').value;
+        var http = new XMLHttpRequest();
+        var url = "/charges/charge_card";
+        var params = "products=" + productsString
+        +"&name=" + name
+        +"&email=" + email
+        + "&nonce=" + nonce
+        + "&street_address_1=" + street_address_1
+        + "&street_address_2=" + street_address_2
+        + "&city=" + city
+        + "&state=" + state
+        + "&zip=" + zip;
+        http.open("POST", url, true);
+        //Send the proper header information along with the request
+        http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        http.setRequestHeader("X-CSRF-Token", "<%= form_authenticity_token %>");
+        http.onreadystatechange = function() {//Call a function when the state changes.
+        if(http.readyState == 4 && http.status == 200) {
+        var data = JSON.parse(http.responseText)
+        if (data.status == 200) {
+        document.getElementById("successNotification").style.display = "block";
+        document.getElementById("payment-form").style.display = "none";
+        window.scrollTo(0, 0);
+        }else if (data.status == 400){
+        var error_html = ""
+        for (var i =0; i < data.errors.length; i++){
+        error_html += "<li> " + data.errors[i].detail + " </li>";
+        }
+        document.getElementById("card-errors").innerHTML = error_html;
+        document.getElementById('submit').disabled = false;
+        }
+        }
+        }
+        http.send(params);
+        }
+        </script>
+    </body>
+</html>

@@ -12,8 +12,6 @@ var config = require('./config.json')
 const Mailgun = require('mailgun').Mailgun;
 const mg = new Mailgun(config.development.MAILGUN_API_KEY);
 
-var exphbs  = require('express-handlebars');
-
 var routes = require('./routes/index');
 
 var app = express();
@@ -33,12 +31,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 
 
-//app.use(express.static('public'))
+app.use(express.static('public'))
 
 // [START hello_world]
 // Say hello!
 app.get('/', (req, res) => {
-  res.render(process.cwd() + 'public/index.html');
+  res.render('index', {
+    'square_application_id': config.development.squareApplicationId,
+  });
 });
 
 app.post('/', function(req, res, next) {

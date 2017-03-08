@@ -6,6 +6,9 @@ var config = require('.././config.json')[app.get('env')];
 
 var unirest = require('unirest');
 
+const Mailgun = require('mailgun').Mailgun;
+const mg = new Mailgun(config.MAILGUN_API_KEY);
+
 var base_url = "https://connect.squareup.com/v2";
 
 // data store for product cost
@@ -22,6 +25,7 @@ router.get('/order', function(req, res, next) {
 
 router.post('/charges/charge_card', function(req,res,next){
 	var location;
+	var order_content = ''
 	var amount = 0
 	var tax = 0.00;
 	var request_params = req.body;
@@ -38,6 +42,7 @@ router.post('/charges/charge_card', function(req,res,next){
 			spread_sm_total = 0
 
 	product_array.forEach(function(element) {
+		order_content += element
 		var item = element.split('|')
 		if (item[0] === 'bagel') {
 			bagel_total += Number(item[1])
@@ -72,6 +77,32 @@ router.post('/charges/charge_card', function(req,res,next){
 		amount += spread_sm_total * 200
 		amount += spread_lg_total * 600
 		amount += amount * tax
+
+		if (amount < 100) {
+			amount = 100
+		}
+
+		const servername = ''
+		const options = {}
+
+		mg.sendText(
+			'no-reply@appengine-mailgun-demo.com',
+			'critesjosh@gmail.com', //req.body.email
+			'Hello josh!',
+			`Test charge on square worked. The order includes ${order_content}`,
+			servername,
+			options,
+			(err) => {
+				if (err) {
+					next(err);
+					return
+				}
+				res.render('index', {
+					sent: true
+				});
+			}
+
+		)
 
 	console.log('bagels'+ bagel_total, 'spreads' + spread_lg_total + ',' + spread_sm_total, 'shmears' + shmear_lg_total + ','  + shmear_sm_total)
 

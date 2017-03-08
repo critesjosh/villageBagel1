@@ -1,0 +1,275 @@
+doctype html
+//if lt IE 7
+  html.no-js.lt-ie9.lt-ie8.lt-ie7(lang='')  
+//if IE 7
+  html.no-js.lt-ie9.lt-ie8(lang='')  
+//if IE 8
+  html.no-js.lt-ie9(lang='')  
+// [if gt IE 8] <!
+html.no-js(lang='')
+  // <![endif]
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+    title #2 - A Simple One Page Template - ScrollMagic and GreenSock
+    meta(name='description', content='')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='apple-touch-icon', href='apple-touch-icon.png')
+    link(href='https://fonts.googleapis.com/css?family=Raleway:100|Roboto+Condensed:700', rel='stylesheet', type='text/css')
+    link(rel='stylesheet', href='../css/styles.css')
+    script(src='../js/vendor/modernizr-2.8.3-respond-1.4.2.min.js')
+  body
+    //if lt IE 8
+      p.browserupgrade
+        | You are using an 
+        strong outdated
+        |  browser. Please 
+        a(href='http://browsehappy.com/') upgrade your browser
+        |  to improve your experience.
+    #intro.header-container.fs
+      header.wrapper
+        h1.title Village Bagel
+        p Once you try an authentic bagel, you'll never eat the store bought ones again.
+        form(style='color: black;', method='post')
+          input(type='email', name='email')
+          input(type='submit', value='send email')
+      span.scroll-hint Scroll Down
+    nav
+      ul
+        li
+          a(href='#intro')
+            span.nav-dot
+            span.nav-label Village Bagel
+        li
+          a(href='#slide01')
+            span.nav-dot
+            span.nav-label Images
+        li
+          a(href='#slide02')
+            span.nav-dot
+            span.nav-label Order
+        li
+          a(href='#slide03')
+            span.nav-dot
+            span.nav-label Contact
+    .main-container
+      article#cb01.content-block
+        .wrapper
+          header.slideInUp
+            h1 SHARE
+          section
+            p.slideInUp.slideInUp2
+              a(target='_blank', title='follow me on twitter', href='http://www.twitter.com/PLACEHOLDER')
+                img(style='height: 40px; width:40px;', alt='follow me on twitter', src='../img/twitter-icon.png', border='0')
+              a(target='_blank', title='follow me on instagram', href='http://www.facebook.com/PLACEHOLDER')
+                img(style='height: 40px; width:40px;', alt='follow me on facebook', src='../img/facebook-icon.png', border='0')
+              a(target='_blank', title='follow me on twitter', href='http://www.instagram.com/PLACEHOLDER')
+                img(style='height: 40px; width:40px;', alt='follow me on twitter', src='../img/instagram-icon.png', border='0')
+              a(target='_blank', href='mailto:name@email.com?subject=Check%20out%20this%20cool%20spot.&body=Check%20out%20villagebagel.co')
+                img(style='height: 40px; width:40px;', alt='follow me on twitter', src='../img/email-icon.png', border='0')
+        // .wrapper
+      article#slide01.slide.fs
+        .wrapper
+          header.slideInUp
+            h1 A picture is worth a thousand words
+          section
+            p.slideInUp.slideInUp2 Let the images do the talking and use text for short summaries.
+        // .wrapper
+      article#cb02.content-block
+        .wrapper
+          header.slideInUp
+            h1 Menu
+          section
+            p.slideInUp.slideInUp2 Bagels, Shmears and Spreads`
+        // .wrapper
+      article#slide02.slide.fs
+        .wrapper
+          header.slideInUp
+            h1 Position and Timing
+          section
+            p.slideInUp.slideInUp2
+              | Position elements based on the background image and trigger animation at the right time.
+            p.slideInUp.slideInUp3 Use different triggerElements in combination with offsets to be in full control.
+        // .wrapper
+      article#cb03.content-block
+        .wrapper
+          header.slideInUp
+            h1 Order Here
+          section
+            p.slideInUp.slideInUp2 Place an order in the form that is about to go here.
+            #successNotification(style='display: none') Card Charged Succesfully!!
+            br
+            br
+            form#payment-form(action='#', onsubmit='return paymentFormSubmit()')
+              div
+                #card-errors
+                label Email
+                br
+                input#email.sq-input(style='width: 50%; padding 7px 12px;', type='email', name='email', placeholder='Email')
+                br
+                label Card Number
+                #sq-card-number
+              div
+                label CVV
+                #sq-cvv
+              div
+                label Expiration Date
+                #sq-expiration-date
+              div
+                label Postal Code
+                #sq-postal-code
+              div
+                input#submit.btn.btn-primary(type='submit', value='Place Order')
+                br
+                br
+        // .wrapper
+      article#slide03.slide.fs
+        .wrapper
+          header.slideInUp
+            h1 Contact us
+          section
+            p.slideInUp.slideInUp2
+              a(style='text-decoration: none;', href='mailto:villagebagel1@gmail.com') Email us here
+            p.slideInUp.slideInUp2
+              | Custom order by calling or texting 
+              a(style='text-decoration: none;', href='tel:19148868851') (914)886-8851
+            .slideInUp.slideInUp3
+              h2 Or Visit
+              p
+                | Village Bagel LLC 
+                br
+                |                               55 Village Road 
+                br
+                |                               Avon, CO, 81620 
+                br
+                |                               Pick up at Kitchen Entrance Around Back of 
+                br
+                |                               Mirabelle Restaurant (just inside the gates of Beaver Creek).
+        // .wrapper
+    // #main-container
+    .footer-container
+      footer.wrapper
+        h3
+          | 2016 © 
+          a(href='https://ihatetomatoes.net', target='_blank') Ihatetomatoes.net
+          |  
+          a(href='https://twitter.com/ihatetomatoes', target='_blank') @ihatetomatoes
+          |  | Images by 
+          a(href='http://raumrot.com/portfolio/set-07-free-for-commercial-use-photos/', target='_blank') Markus Spiske / raumrot.com
+          |  | Animate responsibly!
+    script(src='//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js')
+    script.
+      window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\\/script>')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js')
+    script(type='text/javascript', src='https://js.squareup.com/v2/paymentform')
+    script(src='../js/main.js')
+    script(src='../js/custom.js')
+    script(type='text/javascript').
+      console.log(cart)
+      var cardNonce;
+      var paymentForm = new SqPaymentForm({
+      applicationId: '#{square_application_id}',
+      inputClass: 'sq-input',
+      inputStyles: [
+      {
+      fontSize: '14px',
+      padding: '7px 12px',
+      backgroundColor: "transparent"
+      }
+      ],
+      cardNumber: {
+      elementId: 'sq-card-number',
+      placeholder: '0000 0000 0000 0000'
+      },
+      cvv: {
+      elementId: 'sq-cvv',
+      placeholder: 'CVV'
+      },
+      expirationDate: {
+      elementId: 'sq-expiration-date',
+      placeholder: 'MM/YY'
+      },
+      postalCode: {
+      elementId: 'sq-postal-code',
+      placeholder: '94110'
+      },
+      callbacks: {
+      cardNonceResponseReceived: function(errors, nonce, cardData) {
+      if (errors){
+      var error_html = ""
+      for (var i =0; i < errors.length; i++){
+      error_html += "<li> " + errors[i].message + " </li>";
+      }
+      document.getElementById("card-errors").innerHTML = error_html;
+      document.getElementById('submit').disabled = false;
+      }else{
+      document.getElementById("card-errors").innerHTML = "";
+      chargeCardWithNonce(nonce);
+      }
+      },
+      unsupportedBrowserDetected: function() {
+      // Alert the buyer
+      alert('unsupported Browser Detected')
+      }
+      }
+      });
+      // build payment form after DOM load
+      document.addEventListener('page:change', function(){
+      console.log('dom loaded')
+      paymentForm.build()
+      });
+      var paymentFormSubmit = function(){
+      event.preventDefault()
+      console.log('submit clicked');
+      document.getElementById('submit').disabled = true;
+      paymentForm.requestCardNonce();
+      return false;
+      }
+      var chargeCardWithNonce = function(nonce) {
+      var productsString = '';
+      cart.forEach(function(element){
+      productsString = productsString + element.string + ','
+      })
+      var products = cart;
+      var name =  "null" || document.getElementById('name').value;
+      var email = document.getElementById('email').value || "null";
+      var street_address_1 = "null" || document.getElementById('street_address_1').value;
+      var street_address_2 = "null" || document.getElementById('street_address_2').value;
+      var city = "null" || document.getElementById('city').value;
+      var state = "null" || document.getElementById('state').value;
+      var zip = "null" || document.getElementById('zip').value;
+      var http = new XMLHttpRequest();
+      var url = "/charges/charge_card";
+      var params = "products=" + productsString
+      +"&name=" + name
+      +"&email=" + email
+      + "&nonce=" + nonce
+      + "&street_address_1=" + street_address_1
+      + "&street_address_2=" + street_address_2
+      + "&city=" + city
+      + "&state=" + state
+      + "&zip=" + zip;
+      http.open("POST", url, true);
+      //Send the proper header information along with the request
+      http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      http.setRequestHeader("X-CSRF-Token", "<%= form_authenticity_token %>");
+      http.onreadystatechange = function() {//Call a function when the state changes.
+      if(http.readyState == 4 && http.status == 200) {
+      var data = JSON.parse(http.responseText)
+      if (data.status == 200) {
+      document.getElementById("successNotification").style.display = "block";
+      document.getElementById("payment-form").style.display = "none";
+      window.scrollTo(0, 0);
+      }else if (data.status == 400){
+      var error_html = ""
+      for (var i =0; i < data.errors.length; i++){
+      error_html += "<li> " + data.errors[i].detail + " </li>";
+      }
+      document.getElementById("card-errors").innerHTML = error_html;
+      document.getElementById('submit').disabled = false;
+      }
+      }
+      }
+      http.send(params);
+      }

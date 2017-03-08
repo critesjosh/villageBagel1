@@ -13,9 +13,9 @@
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
         <link href="https://fonts.googleapis.com/css?family=Raleway:100|Roboto+Condensed:700" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="../css/styles.css">
 
-        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        <script src="../js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -52,10 +52,10 @@
                     </header>
                     <section>
                         <p class="slideInUp slideInUp2">
-                          <a target="_blank" title="follow me on twitter" href="http://www.twitter.com/PLACEHOLDER"><img style="height: 40px; width:40px;" alt="follow me on twitter" src="img/twitter-icon.png" border=0></a>
-                          <a target="_blank" title="follow me on instagram" href="http://www.facebook.com/PLACEHOLDER"><img style="height: 40px; width:40px;" alt="follow me on facebook" src="img/facebook-icon.png" border=0></a>
-                          <a target="_blank" title="follow me on twitter" href="http://www.instagram.com/PLACEHOLDER"><img style="height: 40px; width:40px;" alt="follow me on twitter" src="img/instagram-icon.png" border=0></a>
-                          <a target="_blank" href="mailto:name@email.com?subject=Check%20out%20this%20cool%20spot.&amp;body=Check%20out%20villagebagel.co"><img style="height: 40px; width:40px;" alt="follow me on twitter" src="img/email-icon.png" border=0></a>
+                          <a target="_blank" title="follow me on twitter" href="http://www.twitter.com/PLACEHOLDER"><img style="height: 40px; width:40px;" alt="follow me on twitter" src="../img/twitter-icon.png" border=0></a>
+                          <a target="_blank" title="follow me on instagram" href="http://www.facebook.com/PLACEHOLDER"><img style="height: 40px; width:40px;" alt="follow me on facebook" src="../img/facebook-icon.png" border=0></a>
+                          <a target="_blank" title="follow me on twitter" href="http://www.instagram.com/PLACEHOLDER"><img style="height: 40px; width:40px;" alt="follow me on twitter" src="../img/instagram-icon.png" border=0></a>
+                          <a target="_blank" href="mailto:name@email.com?subject=Check%20out%20this%20cool%20spot.&amp;body=Check%20out%20villagebagel.co"><img style="height: 40px; width:40px;" alt="follow me on twitter" src="../img/email-icon.png" border=0></a>
                         </p>
                     </section>
                 </div> <!-- .wrapper -->
@@ -174,23 +174,17 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
         <script type="text/javascript" src="https://js.squareup.com/v2/paymentform"></script>
-        <script src="/js/main.js"></script>
-        <script src="js/custom.js"></script>
+        <script src="../js/main.js"></script>
+        <script src="../js/custom.js"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X','auto');ga('send','pageview');
-        </script>
         <script type="text/javascript">
           console.log(cart)
           var cardNonce;
+          var hi = {{hi}}
+          console.log(hi)
           var paymentForm = new SqPaymentForm({
-          applicationId: '#{square_application_id}',
+          applicationId: {{square_application_id}},
           inputClass: 'sq-input',
           inputStyles: [
           {
