@@ -1,7 +1,14 @@
 ul{
   list-style-type: none;
 }
-
+input {
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+select {
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
 .cart {
   margin-top: 80px;
   border: 2px solid grey;
@@ -16,6 +23,50 @@ ul{
   margin-top: 10px;
 }
 
+
+
 #payment-form #submit {
-  float:right;
+  flex: 1 50%;
+}
+
+.social-icon {
+  height: 40px;
+  width:40px;
+  margin: 10px;
+}
+
+.nav-dot{
+  color: #666;
+}
+.nav-label {
+  color: #ccc;
+}
+
+
+.page {
+  display: flex;
+  flex-direction: row;
+}
+
+.order-form {
+  flex: 1 1 50%;
+  padding-right: 10px;
+  padding-left: 10px;
+  order: 1;
+}
+
+.cart-payment {
+  flex: 1 1 50%;
+  padding-right: 10px;
+  padding-left: 10px;
+  order:2;
+}
+
+@media screen and (max-width: 650px){
+  .page {
+    flex-direction: column;
+  }
+  .cart-payment, .order-form {
+    order: 0;
+  }
 }

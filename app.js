@@ -41,30 +41,6 @@ app.get('/', (req, res) => {
   });
 });
 
-app.post('/', function(req, res, next) {
-	const servername = ''
-	const options = {}
-
-	mg.sendText(
-		'no-reply@appengine-mailgun-demo.com',
-		'critesjosh@gmail.com', //req.body.email
-		'Hello josh!',
-		'Mailgun on Google App Engine with Node.js',
-		servername,
-		options,
-		(err) => {
-			if (err) {
-				next(err);
-				return
-			}
-			res.render('index', {
-				sent: true
-			});
-		}
-
-	)
-})
-
 if (module === require.main) {
   // [START server]
   // Start the server

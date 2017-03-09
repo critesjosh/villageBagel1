@@ -23,7 +23,6 @@
     "jade": "*",
     "mailgun": "^0.5.0",
     "morgan": "*",
-    "pug": "*",
     "serve-favicon": "*",
     "unirest": "^0.5.1"
   },

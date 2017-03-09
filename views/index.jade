@@ -11,12 +11,12 @@ html.no-js(lang='')
   head
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
-    title #2 - A Simple One Page Template - ScrollMagic and GreenSock
+    title Village Bagel
     meta(name='description', content='')
     meta(name='viewport', content='width=device-width, initial-scale=1')
-    link(rel='apple-touch-icon', href='apple-touch-icon.png')
     link(href='https://fonts.googleapis.com/css?family=Raleway:100|Roboto+Condensed:700', rel='stylesheet', type='text/css')
     link(rel='stylesheet', href='../css/styles.css')
+    link(rel='stylesheet', href='../css/custom.css')
     script(src='../js/vendor/modernizr-2.8.3-respond-1.4.2.min.js')
   body
     //if lt IE 8
@@ -30,9 +30,6 @@ html.no-js(lang='')
       header.wrapper
         h1.title Village Bagel
         p Once you try an authentic bagel, you'll never eat the store bought ones again.
-        form(style='color: black;', method='post')
-          input(type='email', name='email')
-          input(type='submit', value='send email')
       span.scroll-hint Scroll Down
     nav
       ul
@@ -56,77 +53,8 @@ html.no-js(lang='')
       article#cb01.content-block
         .wrapper
           header.slideInUp
-            h1 SHARE
+            h1 Contact Us
           section
-            p.slideInUp.slideInUp2
-              a(target='_blank', title='follow me on twitter', href='http://www.twitter.com/PLACEHOLDER')
-                img(style='height: 40px; width:40px;', alt='follow me on twitter', src='../img/twitter-icon.png', border='0')
-              a(target='_blank', title='follow me on instagram', href='http://www.facebook.com/PLACEHOLDER')
-                img(style='height: 40px; width:40px;', alt='follow me on facebook', src='../img/facebook-icon.png', border='0')
-              a(target='_blank', title='follow me on twitter', href='http://www.instagram.com/PLACEHOLDER')
-                img(style='height: 40px; width:40px;', alt='follow me on twitter', src='../img/instagram-icon.png', border='0')
-              a(target='_blank', href='mailto:name@email.com?subject=Check%20out%20this%20cool%20spot.&body=Check%20out%20villagebagel.co')
-                img(style='height: 40px; width:40px;', alt='follow me on twitter', src='../img/email-icon.png', border='0')
-        // .wrapper
-      article#slide01.slide.fs
-        .wrapper
-          header.slideInUp
-            h1 A picture is worth a thousand words
-          section
-            p.slideInUp.slideInUp2 Let the images do the talking and use text for short summaries.
-        // .wrapper
-      article#cb02.content-block
-        .wrapper
-          header.slideInUp
-            h1 Menu
-          section
-            p.slideInUp.slideInUp2 Bagels, Shmears and Spreads`
-        // .wrapper
-      article#slide02.slide.fs
-        .wrapper
-          header.slideInUp
-            h1 Position and Timing
-          section
-            p.slideInUp.slideInUp2
-              | Position elements based on the background image and trigger animation at the right time.
-            p.slideInUp.slideInUp3 Use different triggerElements in combination with offsets to be in full control.
-        // .wrapper
-      article#cb03.content-block
-        .wrapper
-          header.slideInUp
-            h1 Order Here
-          section
-            p.slideInUp.slideInUp2 Place an order in the form that is about to go here.
-            #successNotification(style='display: none') Card Charged Succesfully!!
-            br
-            br
-            form#payment-form(action='#', onsubmit='return paymentFormSubmit()')
-              div
-                #card-errors
-                label Email
-                br
-                input#email.sq-input(style='width: 50%; padding 7px 12px;', type='email', name='email', placeholder='Email')
-                br
-                label Card Number
-                #sq-card-number
-              div
-                label CVV
-                #sq-cvv
-              div
-                label Expiration Date
-                #sq-expiration-date
-              div
-                label Postal Code
-                #sq-postal-code
-              div
-                input#submit.btn.btn-primary(type='submit', value='Place Order')
-                br
-                br
-        // .wrapper
-      article#slide03.slide.fs
-        .wrapper
-          header.slideInUp
-            h1 Contact us
           section
             p.slideInUp.slideInUp2
               a(style='text-decoration: none;', href='mailto:villagebagel1@gmail.com') Email us here
@@ -142,21 +70,67 @@ html.no-js(lang='')
                 br
                 |                               Avon, CO, 81620 
                 br
-                |                               Pick up at Kitchen Entrance Around Back of 
-                br
-                |                               Mirabelle Restaurant (just inside the gates of Beaver Creek).
+                |                               Pick up at Kitchen Entrance Around Back of Mirabelle Restaurant (just inside the gates of Beaver Creek).
+        // .wrapper
+      article#slide01.slide.fs
+        .wrapper
+          header.slideInUp
+            h1 
+          section
+            p.slideInUp.slideInUp2 
+        // .wrapper
+      article#cb02.content-block
+        .wrapper
+          header.slideInUp
+            h1 Menu
+          section
+            p.slideInUp.slideInUp2 Bagels, Shmears and Spreads`
+        // .wrapper
+      article#slide02.slide.fs
+        .wrapper
+          header.slideInUp
+            h1 
+          section
+            p.slideInUp.slideInUp2
+              | 
+            p.slideInUp.slideInUp3
+        // .wrapper
+      article#cb03.content-block
+        .wrapper
+          header.slideInUp
+            h1 
+              a(href="/order" style="text-decoration:none;") Order Here
+          section
+            p.slideInUp.slideInUp2
+        // .wrapper
+      article#slide03.slide.fs
+        .wrapper
+          header.slideInUp
+            h1 
+          section
+            p.slideInUp.slideInUp2
+            p.slideInUp.slideInUp2
+            .slideInUp.slideInUp3
+              h2 
+              p
         // .wrapper
     // #main-container
     .footer-container
-      footer.wrapper
-        h3
-          | 2016 © 
-          a(href='https://ihatetomatoes.net', target='_blank') Ihatetomatoes.net
-          |  
-          a(href='https://twitter.com/ihatetomatoes', target='_blank') @ihatetomatoes
-          |  | Images by 
-          a(href='http://raumrot.com/portfolio/set-07-free-for-commercial-use-photos/', target='_blank') Markus Spiske / raumrot.com
-          |  | Animate responsibly!
+      footer
+      .wrapper
+        <br>
+        h1 Tell your friends
+        section
+          a(target='_blank', title='follow me on twitter', href='http://www.twitter.com/PLACEHOLDER')
+            img(class="social-icon" alt='follow me on twitter', src='../img/twitter-icon.png', border='0')
+          a(target='_blank', title='follow me on instagram', href='http://www.facebook.com/PLACEHOLDER')
+            img(class="social-icon" alt='follow me on facebook', src='../img/facebook-icon.png', border='0')
+          a(target='_blank', title='follow me on twitter', href='http://www.instagram.com/PLACEHOLDER')
+            img(class="social-icon" alt='follow me on twitter', src='../img/instagram-icon.png', border='0')
+          a(target='_blank', href='mailto:name@email.com?subject=Check%20out%20this%20cool%20spot.&body=Check%20out%20villagebagel.co')
+            img(class="social-icon" alt='follow me on twitter', src='../img/email-icon.png', border='0')
+          |<br/>  
+          |<br>
     script(src='//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js')
     script.
       window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\\/script>')

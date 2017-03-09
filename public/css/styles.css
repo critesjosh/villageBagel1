@@ -9,7 +9,7 @@
 
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
-  font-family: sans-serif;
+  font-family: Helvetica;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%; }
 
@@ -206,7 +206,7 @@ html, body {
 h1 {
   font-size: 2em;
   margin-top: 0;
-  font-family: 'Roboto Condensed', Helvetica, Helvetica Neue, Arial, sans-serif;
+  font-family: Helvetica, Helvetica Neue, Arial, sans-serif;
   font-weight: 700; }
 
 /* ==========================================================================
@@ -216,7 +216,7 @@ h1 {
 .header-container {
   text-align: center;
   color: #ffffff;
-  background: url(../img/img_mountains01.jpg) no-repeat center center;
+  background: url(../img/box_o_bagels.jpg) no-repeat center center;
   background-size: cover; }
   .header-container .wrapper {
     padding-top: 120px;
@@ -296,7 +296,7 @@ nav {
   border: 3px #212121 solid;
   font-size: 13px;
   font-weight: bold;
-  font-family: 'Roboto Condensed', Helvetica, Helvetica Neue, Arial, sans-serif;
+  font-family: Helvetica, Helvetica Neue, Arial, sans-serif;
   background-color: white; }
 
 /* =Main */
@@ -313,18 +313,18 @@ p {
     padding-top: 120px;
     text-align: center; }
   .slide#slide01 {
-    background: url(../img/img_mountains02.jpg) no-repeat center center;
+    background: url(../img/connie.jpg) no-repeat center center;
     background-size: cover;
     color: #212121; }
   .slide#slide02 {
-    background: url(../img/img_mountains03.jpg) no-repeat center center;
+    background: url(../img/everything_bagels.jpg) no-repeat center center;
     background-size: cover; }
     .slide#slide02 .wrapper {
       position: absolute;
       bottom: 10%; }
   .slide#slide03 {
     color: #212121;
-    background: url(../img/img_mountains04.jpg) no-repeat center center;
+    background: url(../img/bagel_sandwich.jpg) no-repeat center center;
     background-size: cover; }
     .slide#slide03 .button {
       border-color: rgba(0, 0, 0, 0.7);
@@ -368,8 +368,8 @@ p {
 .footer-container {
   text-align: center;
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.5);
-  background-color: #06060d; }
+  color: black;
+  background-color: white; }
   .footer-container h3 {
     margin: 0;
     padding: 20px 0;

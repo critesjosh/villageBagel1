@@ -20,7 +20,7 @@ router.get('/square', function(req, res, next) {
 });
 
 router.get('/order', function(req, res, next) {
-	//res.render('order', { titel: 'Place an Order', 'square_application_id': config.squareApplicationId });
+	res.render('order', { title: 'Place an Order', 'square_application_id': config.squareApplicationId });
 });
 
 router.post('/charges/charge_card', function(req,res,next){
@@ -28,7 +28,19 @@ router.post('/charges/charge_card', function(req,res,next){
 	var order_content = ''
 	var amount = 0
 	var tax = 0.00;
+	const servername = ''
+	const options = {}
+
 	var request_params = req.body;
+
+	//shipping information
+	var name = request_params.name
+	var email = request_params.email
+	var phone = request_params.phone
+	var street_address = request_params.street_address_1 + " " + request_params.street_address_2
+	var city = request_params.city
+	var state = request_params.state
+	var zip = request_params.zip
 
 	//compute total to charge here
 	var product_array = request_params.products.split(',')
@@ -42,7 +54,16 @@ router.post('/charges/charge_card', function(req,res,next){
 			spread_sm_total = 0
 
 	product_array.forEach(function(element) {
-		order_content += element
+		var toPrint = element
+		toPrint = toPrint.split('|')
+		if (toPrint[3]) {
+			toPrint = `${toPrint[1]} ${toPrint[2]} ${toPrint[0]} ${toPrint[3]}`
+		} else {
+			toPrint = `${toPrint[1]} ${toPrint[2]} ${toPrint[0]}`
+		}
+		console.log(toPrint)
+		order_content += `\n ${toPrint}`
+
 		var item = element.split('|')
 		if (item[0] === 'bagel') {
 			bagel_total += Number(item[1])
@@ -77,34 +98,6 @@ router.post('/charges/charge_card', function(req,res,next){
 		amount += spread_sm_total * 200
 		amount += spread_lg_total * 600
 		amount += amount * tax
-
-		if (amount < 100) {
-			amount = 100
-		}
-
-		const servername = ''
-		const options = {}
-
-		mg.sendText(
-			'no-reply@appengine-mailgun-demo.com',
-			'critesjosh@gmail.com', //req.body.email
-			'Hello josh!',
-			`Test charge on square worked. The order includes ${order_content}`,
-			servername,
-			options,
-			(err) => {
-				if (err) {
-					next(err);
-					return
-				}
-				res.render('index', {
-					sent: true
-				});
-			}
-
-		)
-
-	console.log('bagels'+ bagel_total, 'spreads' + spread_lg_total + ',' + spread_sm_total, 'shmears' + shmear_lg_total + ','  + shmear_sm_total)
 
 	unirest.get(base_url + '/locations')
 	.headers({
@@ -154,6 +147,35 @@ router.post('/charges/charge_card', function(req,res,next){
 			if (response.body.errors){
 				res.json({status: 400, errors: response.body.errors})
 			}else{
+				mg.sendText(
+					'no-reply@appengine-mailgun-demo.com',
+					'villagebagel1@gmail.com', //req.body.email
+					'New Village Bagel Order',
+					`Hi Connie.
+					This is a test email.
+
+					Someone just placed an order on the website.
+					The order includes ${order_content}.
+
+					Their subtotal is $${amount/100}.
+
+					Here is their address information:
+					${name}
+					${email}
+					${phone}
+					${street_address}
+					${city}
+					${state}
+					${zip}`,
+					servername,
+					options,
+					(err) => {
+						if (err) {
+							next(err);
+							return
+						}
+					}
+				)
 				res.json({status: 200})
 			}
 		})

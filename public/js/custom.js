@@ -104,7 +104,7 @@ function updateCart () {
   cart.forEach(function(element, index, array){
     $('#cart').append(`<div class="cart-item">
       ${element.number} ${element.item}: ${element.type} ${element.size}
-      <span style="float:right;" class="glyphicon glyphicon-remove" aria-hidden="true" onclick="deleteFromCart(${element.id})"></span>
+      <span style="float:right; cursor: pointer;" onclick="deleteFromCart(${element.id})">X</span>
       <hr/>
     </div>`)
   })
@@ -130,7 +130,7 @@ function updateCart () {
       }
     }
   })
-  
+
   if (bagels >= 13) {
     var multiple = Math.floor(bagels / 13)
     subtotal += multiple * 23
@@ -158,32 +158,4 @@ function deleteFromCart(id) {
     }
   })
   updateCart()
-}
-
-function checkout () {
-
-}
-
-function workBagels(bagels) {
-  if (bagels >= 13) {
-    bagels = bagels - 13
-  } else if (bagels >= 6){
-    bagels = bagels - 6
-  } else {
-    return bagels
-  }
-  workBagels(bagels)
-}
-
-function workSubtotal(subtotal, bagels) {
-  if (bagels >= 13) {
-    subtotal = subtotal + 23
-    bagels = bagels - 13
-  } else if (bagels >= 6){
-    subtotal = subtotal + 12
-    bagels = bagels - 6
-  } else {
-    return subtotal
-  }
-  workBagels(subtotal, bagels)
 }

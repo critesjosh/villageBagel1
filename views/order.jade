@@ -1,0 +1,419 @@
+doctype html
+//if lt IE 7
+  html.no-js.lt-ie9.lt-ie8.lt-ie7(lang='')
+//if IE 7
+  html.no-js.lt-ie9.lt-ie8(lang='')
+//if IE 8
+  html.no-js.lt-ie9(lang='')
+// [if gt IE 8] <!
+html.no-js(lang='')
+  // <![endif]
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+    title Village Bagel Order
+    meta(name='description', content='')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(href='https://fonts.googleapis.com/css?family=Raleway:100|Roboto+Condensed:700', rel='stylesheet', type='text/css')
+    link(href="../css/bootstrap.css")
+    link(rel='stylesheet', href='../css/styles.css')
+    link(rel='stylesheet', href='../css/custom.css')
+    link(rel='stylesheet', href='../css/payment.css')
+    script(src='../js/vendor/modernizr-2.8.3-respond-1.4.2.min.js')
+  body
+    //if lt IE 8
+      p.browserupgrade
+        | You are using an
+        strong outdated
+        |  browser. Please
+        a(href='http://browsehappy.com/') upgrade your browser
+        |  to improve your experience.
+    h1 Village Bagel Online Order Form
+    div.page
+      div.order-form
+        h2.featurette-heading Place an order
+        span.lead.text-muted Bagels
+        p $2.50 each | $12 half-dozen | $23 baker&apos;s dozen
+        form
+          // Bagels -
+          .form-group
+            label(for='bagel-type') Bagels:
+            select#bagel-type(name='bagel-type')
+              option(value='Plain') Plain
+              option(value='Salt') Salt
+              option(value='Poppy') Poppy
+              option(value='Sesame') Sesame
+              option(value='Onion') Onion
+              option(value='Everything') Everything
+              option(value='Garlic') Garlic
+              option(value='Cinnamon_Raisin') Cinnamon Raisin
+          .form-group
+            label(for='bagel-number') How many?
+            input#bagel-number(type='number', name='bagel-number', min='1')
+          button.btn.btn-default(onclick='addBagelsToCart()', type='submit') Add to cart
+        hr
+        // Shmears
+        form
+          span.lead.text-muted Shmears
+          p $5 half pound | $9 pound
+          .form-group
+            label(for='shmear-type') Shmears:
+
+            select#shmear-type(name='smear-type')
+              option(value='Whipped_Plain') Whipped Plain
+
+              option(value='Hatch_Green_Chili') Hatch Green Chili
+
+              option(value='Honey_Rosemerry') Honey Rosemerry
+
+              option(value='Bacon') Bacon
+
+              option(value='Veggie') Veggie
+
+              option(value='Chive_&amp;_Onion') Chive &amp; Onion
+
+              option(value='Nutella_Swirl') Nutella Swirl
+
+              option(value='Maple_Walnut') Maple Walnut
+
+          .form-group
+            label(for='shmear-size') Size:
+
+            select#shmear-size(name='shmear-number')
+              option(value='Half_Pound') Half Pound
+
+              option(value='One_Pound') One Pound
+
+          .form-group
+            label(for='shmear-number') How many?
+
+            input#shmear-number(name='shmear-number', type='number', min='1')
+
+          button.btn.btn-default(onclick='addShmearsToCart()', type='submit') Add to cart
+
+        hr
+        // Spreads
+        form
+          span.lead.text-muted Spreads
+
+          p $2 single serving | $6 half pound
+
+          .form-group
+            label(for='spread-type') Spreads:
+
+            select#spread-type(name='spread-number')
+              option(value='Avocado') Avocado
+
+              option(value='almond_butter') Almond Butter
+
+              option(value='Strawberry') Strawberry
+
+              option(value='Hummus') Hummus
+
+          .form-group
+            label(for='spread-size') Size:
+
+            select#spread-size(name='spread-number')
+              option(value='Single') Single
+
+              option(value='Half_Pound') Half Pound
+
+          .form-group
+            label(for='spread-number') How many?
+
+            input#spread-number(name='spread-number', type='number', min='1')
+
+          button.btn.btn-default(onclick='addSpreadsToCart()', type='submit') Add to cart
+      div.cart-payment.no-boot
+        h2 Cart
+          hr
+          #cart
+          p
+            | Subtotal:
+            span#subtotal $0
+          hr
+        #successNotification(style='display: none') Card Charged Succesfully!!
+        br
+        form#payment-form(action='#', onsubmit='return paymentFormSubmit()')
+          h2 Payment
+          label Name
+
+          input#name(type='text', name='name', placeholder='Name')
+          br
+          br
+
+          label Email
+
+          input#email(type='email', name='email', placeholder='Email')
+
+          label Phone
+
+          input#phone(type='tel', name='phone', placeholder='(970)111-1111')
+
+          h3  Delivery Address
+
+          label Street
+
+          input#street_address_1(type='text', name='street_address_1', placeholder='Address Line 1')
+          br
+
+          label Street
+
+          input#street_address_2(type='text', name='street_address_2', placeholder='Address Line 2')
+          br
+
+          label City
+
+          input#city(type='text', name='city', placeholder='City')
+          br
+
+          label State
+
+          select#state(name='state')
+            option(value='')
+
+            option(value='AL') Alabama
+
+            option(value='AK') Alaska
+
+            option(value='AZ') Arizona
+
+            option(value='AR') Arkansas
+
+            option(value='CA') California
+
+            option(value='CO') Colorado
+
+            option(value='CT') Connecticut
+
+            option(value='DE') Delaware
+
+            option(value='DC') District of Columbia
+
+            option(value='FL') Florida
+
+            option(value='GA') Georgia
+
+            option(value='HI') Hawaii
+
+            option(value='ID') Idaho
+
+            option(value='IL') Illinois
+
+            option(value='IN') Indiana
+
+            option(value='IA') Iowa
+
+            option(value='KS') Kansas
+
+            option(value='KY') Kentucky
+
+            option(value='LA') Louisiana
+
+            option(value='ME') Maine
+
+            option(value='MD') Maryland
+
+            option(value='MA') Massachusetts
+
+            option(value='MI') Michigan
+
+            option(value='MN') Minnesota
+
+            option(value='MS') Mississippi
+
+            option(value='MO') Missouri
+
+            option(value='MT') Montana
+
+            option(value='NE') Nebraska
+
+            option(value='NV') Nevada
+
+            option(value='NH') New Hampshire
+
+            option(value='NJ') New Jersey
+
+            option(value='NM') New Mexico
+
+            option(value='NY') New York
+
+            option(value='NC') North Carolina
+
+            option(value='ND') North Dakota
+
+            option(value='OH') Ohio
+
+            option(value='OK') Oklahoma
+
+            option(value='OR') Oregon
+
+            option(value='PA') Pennsylvania
+
+            option(value='RI') Rhode Island
+
+            option(value='SC') South Carolina
+
+            option(value='SD') South Dakota
+
+            option(value='TN') Tennessee
+
+            option(value='TX') Texas
+
+            option(value='UT') Utah
+
+            option(value='VT') Vermont
+
+            option(value='VA') Virginia
+
+            option(value='WA') Washington
+
+            option(value='WV') West Virginia
+
+            option(value='WI') Wisconsin
+
+            option(value='WY') Wyoming
+
+          label Zip
+
+          input#zip(type='text', name='zip', placeholder='Zip')
+          br
+          div
+            #card-errors
+            br
+            label Card Number
+            #sq-card-number
+          div
+            label CVV
+            #sq-cvv
+          div
+            label Expiration Date
+            #sq-expiration-date
+          div
+            label Postal Code
+            #sq-postal-code
+          div
+            input#submit.btn.btn-primary(type='submit', value='Place Order')
+            br
+            br
+
+    script(src='//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js')
+    script.
+      window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\\/script>')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js')
+    script(type='text/javascript', src='https://js.squareup.com/v2/paymentform')
+    script(type='text/javascript', src='../js/bootstrap.js')
+    script(src='../js/main.js')
+    script(src='../js/custom.js')
+    script(type='text/javascript').
+      console.log(cart)
+      var cardNonce;
+      var paymentForm = new SqPaymentForm({
+      applicationId: '#{square_application_id}',
+      inputClass: 'sq-input',
+      inputStyles: [
+      {
+      fontSize: '14px',
+      padding: '7px 12px',
+      backgroundColor: "transparent"
+      }
+      ],
+      cardNumber: {
+      elementId: 'sq-card-number',
+      placeholder: '0000 0000 0000 0000'
+      },
+      cvv: {
+      elementId: 'sq-cvv',
+      placeholder: 'CVV'
+      },
+      expirationDate: {
+      elementId: 'sq-expiration-date',
+      placeholder: 'MM/YY'
+      },
+      postalCode: {
+      elementId: 'sq-postal-code',
+      placeholder: '81657'
+      },
+      callbacks: {
+      cardNonceResponseReceived: function(errors, nonce, cardData) {
+      if (errors){
+      var error_html = ""
+      for (var i =0; i < errors.length; i++){
+      error_html += "<li> " + errors[i].message + " </li>";
+      }
+      document.getElementById("card-errors").innerHTML = error_html;
+      document.getElementById('submit').disabled = false;
+      }else{
+      document.getElementById("card-errors").innerHTML = "";
+      chargeCardWithNonce(nonce);
+      }
+      },
+      unsupportedBrowserDetected: function() {
+      // Alert the buyer
+      alert('unsupported Browser Detected')
+      }
+      }
+      });
+      // build payment form after DOM load
+      document.addEventListener('page:change', function(){
+      console.log('dom loaded')
+      paymentForm.build()
+      });
+      var paymentFormSubmit = function(){
+      event.preventDefault()
+      console.log('submit clicked');
+
+      document.getElementById('submit').disabled = true;
+      paymentForm.requestCardNonce();
+      return false;
+      }
+      var chargeCardWithNonce = function(nonce) {
+      var productsString = '';
+      cart.forEach(function(element){
+      productsString = productsString + element.string + ','
+      })
+      var products = cart;
+      var name =  document.getElementById('name').value || "";
+      var email = document.getElementById('email').value || " ";
+      var phone = document.getElementById('phone').value || " ";
+      var street_address_1 = document.getElementById('street_address_1').value || " ";
+      var street_address_2 = document.getElementById('street_address_2').value || " ";
+      var city = document.getElementById('city').value || " ";
+      var state = document.getElementById('state').value || " ";
+      var zip = document.getElementById('zip').value || " ";
+      var http = new XMLHttpRequest();
+      var url = "/charges/charge_card";
+      var params = "products=" + productsString
+      +"&name=" + name
+      +"&email=" + email
+      +"&phone=" + phone
+      + "&nonce=" + nonce
+      + "&street_address_1=" + street_address_1
+      + "&street_address_2=" + street_address_2
+      + "&city=" + city
+      + "&state=" + state
+      + "&zip=" + zip;
+      http.open("POST", url, true);
+      //Send the proper header information along with the request
+      http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      http.setRequestHeader("X-CSRF-Token", "<%= form_authenticity_token %>");
+      http.onreadystatechange = function() {//Call a function when the state changes.
+      if(http.readyState == 4 && http.status == 200) {
+      var data = JSON.parse(http.responseText)
+      if (data.status == 200) {
+      document.getElementById("successNotification").style.display = "block";
+      document.getElementById("payment-form").style.display = "none";
+      window.scrollTo(0, 0);
+      }else if (data.status == 400){
+      var error_html = ""
+      for (var i =0; i < data.errors.length; i++){
+      error_html += "<li> " + data.errors[i].detail + " </li>";
+      }
+      document.getElementById("card-errors").innerHTML = error_html;
+      document.getElementById('submit').disabled = false;
+      }
+      }
+      }
+      http.send(params);
+      }
