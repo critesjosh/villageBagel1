@@ -155,6 +155,8 @@ function updateCart () {
 
   subtotal += subtotal * 0.08
 
+  subtotal = subtotal.toFixed(2)
+
   $('#subtotal').html(`$${subtotal}`)
 }
 
