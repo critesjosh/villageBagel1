@@ -1,9 +1,10 @@
 var cart = [];
 var count = 0;
 
-$(document).ready(
-
-)
+$(document).ready(function(){
+  $('#delivery_checkbox').attr('checked', false)
+  checkForDelivery()
+})
 
 function addBagelsToCart () {
   event.preventDefault()
@@ -148,6 +149,12 @@ function updateCart () {
   subtotal = subtotal + spreadsSingle * 2
   subtotal = subtotal + spreadsHalf * 6
 
+  if ($('#delivery_checkbox').attr('checked')){
+    subtotal += 6
+  }
+
+  subtotal += subtotal * 0.08
+
   $('#subtotal').html(`$${subtotal}`)
 }
 
@@ -157,5 +164,23 @@ function deleteFromCart(id) {
       cart.splice(index, 1)
     }
   })
+  updateCart()
+}
+
+function checkbox() {
+  if ($('#delivery_checkbox').attr('checked')){
+    $('#delivery_checkbox').attr('checked', false)
+  } else {
+    $('#delivery_checkbox').attr('checked', true)
+  }
+  checkForDelivery()
+}
+
+function checkForDelivery() {
+  if ($('#delivery_checkbox').attr('checked')){
+    $('#delivery_fee').html(`Delivery fee: $6 <hr/>`)
+  } else {
+    $('#delivery_fee').html(``)
+  }
   updateCart()
 }

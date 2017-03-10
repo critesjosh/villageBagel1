@@ -32,7 +32,7 @@ html.no-js(lang='')
     div.page
       div.order-form
         h2.featurette-heading Place an order
-        span.lead.text-muted Bagels
+        h2 Bagels
         p $2.50 each | $12 half-dozen | $23 baker&apos;s dozen
         form
           // Bagels -
@@ -54,7 +54,7 @@ html.no-js(lang='')
         hr
         // Shmears
         form
-          span.lead.text-muted Shmears
+          h2 Shmears
           p $5 half pound | $9 pound
           .form-group
             label(for='shmear-type') Shmears:
@@ -94,7 +94,7 @@ html.no-js(lang='')
         hr
         // Spreads
         form
-          span.lead.text-muted Spreads
+          h2 Spreads
 
           p $2 single serving | $6 half pound
 
@@ -124,14 +124,26 @@ html.no-js(lang='')
             input#spread-number(name='spread-number', type='number', min='1')
 
           button.btn.btn-default(onclick='addSpreadsToCart()', type='submit') Add to cart
+        hr
+        form
+          h2 Delivery?
+
+          .form-group
+            label(for='delivery_option') Do you want your order delivered?
+
+            input(id="delivery_checkbox" type="checkbox", name="delivery_option", onclick="checkbox()")
+            |   Yes please!
+
+
       div.cart-payment.no-boot
         h2 Cart
           hr
           #cart
           p
-            | Subtotal:
+            span#delivery_fee(style='font-size: 16px;')
+          p
+            | Subtotal (with tax):
             span#subtotal $0
-          hr
         #successNotification(style='display: none') Card Charged Succesfully!!
         br
         form#payment-form(action='#', onsubmit='return paymentFormSubmit()')
@@ -139,8 +151,6 @@ html.no-js(lang='')
           label Name
 
           input#name(type='text', name='name', placeholder='Name')
-          br
-          br
 
           label Email
 
@@ -382,6 +392,11 @@ html.no-js(lang='')
       var city = document.getElementById('city').value || " ";
       var state = document.getElementById('state').value || " ";
       var zip = document.getElementById('zip').value || " ";
+      if ($('#delivery_checkbox').attr('checked')){
+        var delivery = 'yes'
+        } else {
+        var  delivery = 'no'
+        }
       var http = new XMLHttpRequest();
       var url = "/charges/charge_card";
       var params = "products=" + productsString
@@ -393,7 +408,8 @@ html.no-js(lang='')
       + "&street_address_2=" + street_address_2
       + "&city=" + city
       + "&state=" + state
-      + "&zip=" + zip;
+      + "&zip=" + zip
+      + "&delivery=" + delivery;
       http.open("POST", url, true);
       //Send the proper header information along with the request
       http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");

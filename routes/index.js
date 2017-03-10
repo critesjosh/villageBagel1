@@ -27,7 +27,7 @@ router.post('/charges/charge_card', function(req,res,next){
 	var location;
 	var order_content = ''
 	var amount = 0
-	var tax = 0.00;
+	var tax = 0.08;
 	const servername = ''
 	const options = {}
 
@@ -41,6 +41,7 @@ router.post('/charges/charge_card', function(req,res,next){
 	var city = request_params.city
 	var state = request_params.state
 	var zip = request_params.zip
+	var delivery = request_params.delivery
 
 	//compute total to charge here
 	var product_array = request_params.products.split(',')
@@ -97,7 +98,11 @@ router.post('/charges/charge_card', function(req,res,next){
 		amount += shmear_lg_total * 900
 		amount += spread_sm_total * 200
 		amount += spread_lg_total * 600
+		if (delivery === 'yes'){
+			amount += 600
+		}
 		amount += amount * tax
+
 
 	unirest.get(base_url + '/locations')
 	.headers({
@@ -149,7 +154,7 @@ router.post('/charges/charge_card', function(req,res,next){
 			}else{
 				mg.sendText(
 					'no-reply@appengine-mailgun-demo.com',
-					'villagebagel1@gmail.com', //req.body.email
+					'critesjosh@gmail.com', //req.body.email
 					'New Village Bagel Order',
 					`Hi Connie.
 					This is a test email.
@@ -159,7 +164,9 @@ router.post('/charges/charge_card', function(req,res,next){
 
 					Their subtotal is $${amount/100}.
 
-					Here is their address information:
+					Delivery? ${delivery}
+
+					Here is their contact / address information:
 					${name}
 					${email}
 					${phone}

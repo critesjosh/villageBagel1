@@ -192,7 +192,7 @@ textarea {
    Author: Jonathan Verrecchia - verekia.com/initializr/responsive-template
    ========================================================================== */
 body {
-  font: 16px/1.5 'Raleway', Helvetica, Helvetica Neue, Arial, sans-serif; }
+  font: 16px/1.5 Helvetica, Helvetica Neue, Arial, sans-serif; }
 
 .wrapper {
   width: 80%;
@@ -216,7 +216,7 @@ h1 {
 .header-container {
   text-align: center;
   color: #ffffff;
-  background: url(../img/box_o_bagels.jpg) no-repeat center center;
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../img/box_o_bagels.jpg) no-repeat center center;
   background-size: cover; }
   .header-container .wrapper {
     padding-top: 120px;
@@ -317,7 +317,7 @@ p {
     background-size: cover;
     color: #212121; }
   .slide#slide02 {
-    background: url(../img/everything_bagels.jpg) no-repeat center center;
+    background: url(../img/bites.jpg) no-repeat center center;
     background-size: cover; }
     .slide#slide02 .wrapper {
       position: absolute;

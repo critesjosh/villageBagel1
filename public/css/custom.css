@@ -23,7 +23,9 @@ select {
   margin-top: 10px;
 }
 
-
+a{
+  color: #1E90FF;
+}
 
 #payment-form #submit {
   flex: 1 50%;
@@ -53,6 +55,7 @@ select {
   padding-right: 10px;
   padding-left: 10px;
   order: 1;
+  margin: 0 auto;
 }
 
 .cart-payment {
@@ -69,4 +72,21 @@ select {
   .cart-payment, .order-form {
     order: 0;
   }
+}
+
+#logo{
+  -webkit-filter: invert(1);
+  filter: invert(1);
+  height:100%;
+}
+
+@media screen and (max-width: 650px){
+  #logo{
+    height:auto;
+    width:100%;
+  }
+}
+
+#tagline {
+  font-weight: 600;
 }
